@@ -6,10 +6,25 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+enum Frequency {
+  DAILY
+  HOURLY
+}
+
+model subscription {
+  id                 Int       @id @default(autoincrement())
+  email              String
+  city               String
+  frequency          Frequency
+  is_confirmed       Boolean   @default(false)
+  confirmation_token String    @unique
+
+  @@unique([email, city])
 }
