@@ -9,7 +9,7 @@ export class SchedulerService {
   private readonly logger = new Logger(SchedulerService.name);
 
   constructor(
-    @InjectQueue("weather-sheduler") private weatherQueue: Queue,
+    @InjectQueue("weather-scheduler") private weatherQueue: Queue,
     private readonly prisma: PrismaService) {}
   
   healthcheck(): string {

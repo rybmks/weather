@@ -14,7 +14,7 @@ import { SharedWeatherModule } from 'shared/weather/weather.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     BullModule.registerQueue({
-      name: "weather-sheduler",
+      name: "weather-scheduler",
       connection: {
         host: process.env.REDIS_HOST || "localhost",
         port: Number(process.env.REDIS_PORT) || 6379,
