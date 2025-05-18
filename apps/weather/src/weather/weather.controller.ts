@@ -2,7 +2,7 @@ import {  Controller, Get, Query } from '@nestjs/common';
 import { GetCityWeatherDTO } from './dto/get-city-weather.dto';
 import { SharedWeatherService } from 'shared/weather/weather.service';
 
-@Controller("api")
+@Controller()
 export class WeatherController {
   constructor(private readonly weatherService: SharedWeatherService) {}
 

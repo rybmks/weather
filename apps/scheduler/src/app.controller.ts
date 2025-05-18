@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { SchedulerService } from './scheduler.service';
+import { SchedulerService } from './app.service';
 
 @Controller()
 export class SchedulerController {
   constructor(private readonly schedulerService: SchedulerService) {}
 
-  @Get()
+  @Get("/healthcheck")
   getHello(): string {
-    return this.schedulerService.getHello();
+    return this.schedulerService.healthcheck();
   }
 }

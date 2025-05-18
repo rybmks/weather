@@ -4,9 +4,10 @@ import { AppController } from './app.controller';
 import { WeatherModule } from './weather/weather.module';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
+import { SubscriptionModule } from './subscription/subscription.module';
 
 @Module({
-  imports: [WeatherModule, ConfigModule.forRoot()],
+  imports: [WeatherModule, SubscriptionModule, ConfigModule.forRoot()],
   controllers: [AppController],
   providers: [AppService],
 })
