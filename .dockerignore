@@ -17,6 +17,7 @@ docker-compose.yaml
 !eslint.config.mjs
 !.prettierrc
 !.env-example
+!static
 
 # Include needed parts of the monorepo
 !apps/**

@@ -5,9 +5,12 @@ import { WeatherModule } from './weather/weather.module';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { SubscriptionModule } from './subscription/subscription.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
-  imports: [WeatherModule, SubscriptionModule, ConfigModule.forRoot()],
+  imports: [ServeStaticModule.forRoot({ rootPath: join(process.cwd(), 'static'), serveRoot: '/'}),
+     WeatherModule, SubscriptionModule, ConfigModule.forRoot()],
   controllers: [AppController],
   providers: [AppService],
 })

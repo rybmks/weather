@@ -24,6 +24,7 @@ FROM base AS weather
 WORKDIR /app
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
+COPY static ./static  
 CMD ["node", "dist/apps/weather/src/main"]
 
 FROM base AS scheduler
