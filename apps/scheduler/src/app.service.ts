@@ -16,8 +16,7 @@ export class SchedulerService {
     return 'Hello!';
   }
 
-  //TODO REPLACE WITH HOUR
-  @Cron(CronExpression.EVERY_10_MINUTES)
+  @Cron(CronExpression.EVERY_HOUR)
   async hourlyUpdates(){ 
     this.logger.log("HOURLY UPDATE");
     
