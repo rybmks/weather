@@ -34,7 +34,7 @@ export class SubscriptionService {
                 city: subscribe.city,
             } 
           })){
-            let message = `Subscription for ${subscribe.email} and city ${subscribe.city} is already exists!`
+            let message = `Subscription for ${subscribe.email} and city ${subscribe.city} already exists.`
             
             this.logger.error(message);
             throw new ConflictException(message);
