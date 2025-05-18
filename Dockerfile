@@ -1,8 +1,7 @@
 FROM node:23.11-alpine AS base
 
 RUN corepack enable
-
-RUN apt update && apt install -y openssl
+RUN apk add --no-cache openssl
 
 WORKDIR /app
 
