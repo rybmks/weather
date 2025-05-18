@@ -1,0 +1,25 @@
+node_modules
+dist
+.git
+*.log
+Dockerfile.*
+docker-compose.yaml
+
+# Ignore everything else by default
+*
+
+# But include only necessary files
+!package.json
+!pnpm-lock.yaml
+!tsconfig.json
+!tsconfig.build.json
+!nest-cli.json
+!eslint.config.mjs
+!.prettierrc
+!.env-example
+!static
+
+# Include needed parts of the monorepo
+!apps/**
+!shared/**
+!prisma/**
