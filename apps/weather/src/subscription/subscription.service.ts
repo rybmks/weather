@@ -2,10 +2,10 @@ import { BadRequestException, ConflictException, Injectable, Logger, NotFoundExc
 import { SubscribeDto } from "./dto/subscribe.dto";
 import { PrismaService } from "../../../../shared/prisma/prisma.service";
 import { mapDtoToPrismaFrequency } from "shared/utils/map-frequency";
-import { generate_confirmation_token } from "shared/utils/uuid-generate";
 import { EmailService } from "shared/email/email.service";
 import { SharedWeatherService } from "shared/weather/weather.service";
 import { Prisma } from "@prisma/client";
+import { generate_confirmation_token } from "shared/utils/confirmation_token-generate";
 
 @Injectable()
 export class SubscriptionService {
