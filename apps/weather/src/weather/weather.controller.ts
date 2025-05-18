@@ -9,8 +9,11 @@ export class WeatherController {
   @Get("weather")
   async getWeather(@Query() query:GetCityWeatherDTO) {
     
-    const response = await this.weatherService.getWeather(query.city);
-
-    return {message: response}
+    try {
+      const response = await this.weatherService.getWeather(query.city);
+      return { temperature: response.temperature, humidity: response.humidity, description: response.description };
+    } catch (error) {
+      throw error;
+    }
   }
 }
