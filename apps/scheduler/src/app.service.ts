@@ -24,13 +24,13 @@ export class SchedulerService {
       where: {is_confirmed: true, frequency: 'HOURLY'}
     });
 
-    for (const sub of hourly_subs) {
-      await this.weatherQueue.add("weather-updates",{
+    await Promise.all(hourly_subs.map(sub => {
+      this.weatherQueue.add("weather-updates",{
         email: sub.email,
         city: sub.city,
         token: sub.confirmation_token
       }, {removeOnComplete: true, removeOnFail: false});
-    }
+    }));
   }
 
   @Cron('0 9 * * *') // 09:00
@@ -41,13 +41,12 @@ export class SchedulerService {
       where: {is_confirmed: true, frequency: 'DAILY'}
     });
 
-
-    for (const sub of daily_subs) {
-      await this.weatherQueue.add("weather-updates",{
+    await Promise.all(daily_subs.map(sub => {
+      this.weatherQueue.add("weather-updates",{
         email: sub.email,
         city: sub.city,
         token: sub.confirmation_token
       }, {removeOnComplete: true, removeOnFail: false});
-    }
+    }));
   }
 }
